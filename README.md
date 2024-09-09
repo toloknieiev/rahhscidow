@@ -9,4 +9,4 @@ For when you need to download a bunch of papers. Runs on `sci-hub`, but with a l
 3. Enjoy
 
 ## how to install
-Do `pip install rahhscidow`
+Do `pip install rahhscidow==1.2.2`
