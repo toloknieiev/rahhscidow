@@ -66,6 +66,7 @@ def main():
             print(f"Retrieval of {element} failed, trying next element...")
     print("Paper retrieval done")
 
+if __name__ == "__main__":
     main()
 
 
