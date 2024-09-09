@@ -12,7 +12,7 @@ setup(
     long_description=long_description,
     long_description_content_type='text/markdown',  # Use 'text/markdown' if you're using Markdown
     packages=find_packages(),
-    python_requires='>=3.6',
+    python_requires='>=3.11',
     install_requires=[],  # Add your dependencies here
     # other setup parameters
 )
