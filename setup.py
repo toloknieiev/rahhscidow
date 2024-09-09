@@ -12,6 +12,11 @@ setup(
     long_description=long_description,
     long_description_content_type='text/markdown',  # Use 'text/markdown' if you're using Markdown
     packages=find_packages(),
+    entry_points={
+        'console_scripts': [
+            'rahhscidow = rahhscidow.__main__:main',
+        ],
+    }
     python_requires='>=3.11',
     install_requires=[],  # Add your dependencies here
     # other setup parameters
