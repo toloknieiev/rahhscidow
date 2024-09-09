@@ -14,7 +14,7 @@ setup(
     packages=find_packages(),
     entry_points={
         'console_scripts': [
-            'rahhscidow=rahhscidow.__main__:main',
+            'rahhscidow=rahhscidow.rahhscidow:main',
         ],
     },
     python_requires='>=3.11',
