@@ -7,7 +7,7 @@ long_description = (here / 'README.md').read_text(encoding='utf-8')
 
 setup(
     name='rahhscidow',  # Your package name
-    version='1.1.1',
+    version='1.2',
     description='A Scihub paper downloader.',
     long_description=long_description,
     long_description_content_type='text/markdown',  # Use 'text/markdown' if you're using Markdown
