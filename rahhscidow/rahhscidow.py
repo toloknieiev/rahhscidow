@@ -64,10 +64,8 @@ def main():
             call_module("scihub", ['-s', f'{element}', "-O", f"{target_path}", "-u", f"{scihub_mirror}"])
         except Exception:
             print(f"Retrieval of {element} failed, trying next element...")
-    
     print("Paper retrieval done")
 
-if __name__ == "__main__":
     main()
 
 
