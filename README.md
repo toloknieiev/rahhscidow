@@ -1,4 +1,4 @@
-# rahhscidow
+# rahhscidow, the Random Ahh Sci-Hub Downloader
 
 For when you need to download a bunch of papers. Runs on `sci-hub`, but with a lot more grace and ease in error handling.
 
