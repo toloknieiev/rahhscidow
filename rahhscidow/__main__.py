@@ -1,5 +1,5 @@
 def main():
-    print("Package rahhscidow is running!")
+    from .rahscidow import main
 
 if __name__ == "__main__":
     main()
