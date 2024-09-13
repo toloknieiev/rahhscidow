@@ -2,11 +2,12 @@
 # coding: utf-8
 
 
-
+import os
+import glob
 import subprocess
 import importlib.util
 
-
+# parse the doi list
 def read_strings_from_file(file_path):
     try:
         with open(file_path, 'r') as file:
@@ -17,9 +18,22 @@ def read_strings_from_file(file_path):
         print(f"Error: File '{file_path}' not found.")
         return []
 
+# invoke sci-hub to download the paper
 def call_module(module_name, args=None):
     command = [module_name] + (args if args else [])
     subprocess.run(command)
+
+#check latest paper´s name
+def get_latest_file(directory):
+    # Get all files in the directory
+    files = glob.glob(os.path.join(directory, '*'))
+    if not files:
+        print("No files found in the directory.")
+        return None
+
+    # Get the file with the latest modification time
+    latest_file = max(files, key=os.path.getmtime)
+    return latest_file
 
 
 def main():
@@ -62,6 +76,8 @@ def main():
             continue
         try:
             call_module("scihub", ['-s', f'{element}', "-O", f"{target_path}", "-u", f"{scihub_mirror}"])
+            latest_file = get_latest_file(target_path)
+            os.rename(latest_file, os.path.join(target_path, f"{element}.pdf"))
         except Exception:
             print(f"Retrieval of {element} failed, trying next element...")
     print("Paper retrieval done")
