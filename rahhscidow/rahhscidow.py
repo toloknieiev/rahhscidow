@@ -24,16 +24,16 @@ def call_module(module_name, args=None):
     subprocess.run(command)
 
 #check latest paper´s name
-def get_latest_file(directory):
+#def get_latest_file(directory):
     # Get all files in the directory
-    files = glob.glob(os.path.join(directory, '*'))
-    if not files:
-        print("No files found in the directory.")
-        return None
+    #files = glob.glob(os.path.join(directory, '*'))
+    #if not files:
+    #    print("No files found in the directory.")
+    #    return None
 
     # Get the file with the latest modification time
-    latest_file = max(files, key=os.path.getmtime)
-    return latest_file
+    #latest_file = max(files, key=os.path.getmtime)
+    #return latest_file
 
 
 def main():
@@ -70,16 +70,14 @@ def main():
         call_module("pip", ["install", "sci-hub"])
     
     
-    
+    # pulled the file renamer
     for element in strings_list:
         if element == "":
             continue
         try:
             call_module("scihub", ['-s', f'{element}', "-O", f"{target_path}", "-u", f"{scihub_mirror}"])
-            latest_file = get_latest_file(target_path)
-            os.rename(latest_file, os.path.join(target_path, f"{element}.pdf"))
-        except Exception:
-            print(f"Retrieval of {element} failed, trying next element...")
+        except Exception as e:
+            print(str(e))
     print("Paper retrieval done")
 
 if __name__ == "__main__":
